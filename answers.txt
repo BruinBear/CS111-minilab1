@@ -1,0 +1,23 @@
+Name: Jingyu Liu
+UCLA ID: 404193267
+
+
+-------------------------------------------------------------------------------
+
+Response to Exercise 1:
+I think in most cases ID can be passed back correct to the process that called the interrupt.
+In cases where other processes was run by the schedule() call, since there is no isolation between processes, if other processes do something that change %eax information for the process that called SYS_GETPID, then the ID will be incorrect.
+
+
+Anything else you'd like us to know:
+#2 do_fork just need to find an available spot that can start a newprocess. . I basically just update stack pointer by id and move top bottom by the same amount of position. memcpy is used to copy information.
+
+#3 added p_wait_id to specify any process that needs wating for the parent to continue. Added P_BLOCKED status to evade polling.
+
+#4
+Bug is that dead and not waiting processes are not set empty.
+
+
+
+Extra credit exercises:
+
